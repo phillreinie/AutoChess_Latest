@@ -53,8 +53,9 @@ public class FightHandler : MonoBehaviour
         foreach (GameObject element in gos)
         {
           GameObject tmpElement =  Instantiate(element);
-          tmpElement.transform.SetParent(targetLayoutGroup);
-          tmpElement.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
+         
+          GameManager.gm.ResetTranformToPanel(tmpElement,targetLayoutGroup.gameObject);
+
           
           targetList.Add(tmpElement);
             
@@ -121,7 +122,6 @@ public class FightHandler : MonoBehaviour
 
     private void CheckForDead()
     {
-  
         
         if (newPlayerTeamRef.Count <= 0 && newEnemyTeamRef.Count >= 1)
         {
@@ -140,11 +140,6 @@ public class FightHandler : MonoBehaviour
             draw = true;
             GameManager.gm.OnFightEnd(playerWin,enemyWin,draw);
         }
-        
-     
-      
-        
-       
 
     }
     

@@ -165,6 +165,11 @@ public class GameManager : MonoBehaviour
         }
         return temp;
     }
+    public void ResetTranformToPanel(GameObject start, GameObject target)
+    {
+        start.transform.SetParent(target.transform);
+        start.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
+    }
 
 
 }

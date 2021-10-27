@@ -39,7 +39,6 @@ public class Element : MonoBehaviour
         DisplayStats();
         if (selected == true)
         {
-            
             levelTxt.text = "SELECTED";
         }
         

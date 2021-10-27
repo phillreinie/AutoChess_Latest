@@ -31,20 +31,16 @@ public class ChooseLogic : MonoBehaviour
         foreach (GameObject element in gos)
         {
             GameObject tmpElement =  Instantiate(element, transform.position, Quaternion.identity);
-            tmpElement.transform.SetParent(targetLayoutGroup);
-            tmpElement.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
-            
+            GameManager.gm.ResetTranformToPanel(tmpElement,targetLayoutGroup.gameObject);
         }
     } 
+    
     private void SpawnShop(List<GameObject> gos, Transform targetLayoutGroup)
     {
         foreach (GameObject element in gos)
         {
             GameObject tmpElement =  Instantiate(element, transform.position, Quaternion.identity);
-            tmpElement.transform.SetParent(targetLayoutGroup);
-            tmpElement.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
-            
-
+            GameManager.gm.ResetTranformToPanel(tmpElement,targetLayoutGroup.gameObject);
         }
     }
 
@@ -102,6 +98,8 @@ public class ChooseLogic : MonoBehaviour
         }
     }
 
+    
+    // hat auch probleme dynamisch zu löschen
     public void Sell()
     {
         if (Player.playerInstance.playerStats_Money <= 0) 
@@ -121,7 +119,7 @@ public class ChooseLogic : MonoBehaviour
         }
     }
     
-    
+    // zeigt probleme mit Laden neu laden in Scene - Team muss besser gespeichert werden 
     public void Combine()
     {
         List<GameObject> selectedElements = CheckIfSelected(layoutPlayerTeam);
@@ -148,7 +146,8 @@ public class ChooseLogic : MonoBehaviour
              }
            
 
-             /* for (int i = childs - 1; i >= 0; i--) 
+             /* alte version
+              for (int i = childs - 1; i >= 0; i--) 
               {
                   GameObject child =   layoutPlayerTeam.transform.GetChild(i).gameObject;
                   bool flag =  child.GetComponent<Element>().selected;
@@ -159,9 +158,6 @@ public class ChooseLogic : MonoBehaviour
                   child.GetComponent<Element>().DeSelect();
               }*/
         }
-        
-     
-        
     }
 
     public List<GameObject> CheckIfSelected(Transform parent)
@@ -183,18 +179,7 @@ public class ChooseLogic : MonoBehaviour
         return temp;
     }
 
-    private void Test()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            List<GameObject> gos = FindAllChildrenInGameObject(layoutPlayerTeam);
-            for (int i = 0; i < gos.Count; i++)
-            {
-                Debug.Log(gos[i].name);
-            }
-            
-        }  
-    }
+
     
     public List<GameObject> FindAllChildrenInGameObject(Transform parent)
     {
@@ -208,6 +193,21 @@ public class ChooseLogic : MonoBehaviour
             temp.Add(child);
         }
         return temp;
+    }
+
+
+    
+    private void Test()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            List<GameObject> gos = FindAllChildrenInGameObject(layoutPlayerTeam);
+            for (int i = 0; i < gos.Count; i++)
+            {
+                Debug.Log(gos[i].name);
+            }
+            
+        }  
     }
     
     
