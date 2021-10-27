@@ -137,13 +137,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadNextScene()
     {
-
-    
-        
-        foreach (GameObject child in playerTeam)
-        {
-            child.transform.SetParent(this.transform);
-        }
+        StoreGMPlayerListInGamgeMangerObject();
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1));
     }
 
@@ -169,6 +163,14 @@ public class GameManager : MonoBehaviour
     {
         start.transform.SetParent(target.transform);
         start.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
+    }
+
+    public void StoreGMPlayerListInGamgeMangerObject()
+    {
+        foreach (GameObject child in playerTeam)
+        {
+            child.transform.SetParent(this.transform);
+        }
     }
 
 

@@ -20,16 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b9e3630-41e5-4cdd-9e7d-21512b2d065b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scribts/Element.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/Element.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scribts/FightHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/FightHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,9 +35,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scribts/Element.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/FightHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -71,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635338256605</updated>
-      <workItem from="1635338289884" duration="976000" />
+      <workItem from="1635338289884" duration="1799000" />
     </task>
     <servers />
   </component>
