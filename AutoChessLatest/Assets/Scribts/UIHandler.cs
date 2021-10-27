@@ -7,9 +7,9 @@ public class UIHandler : MonoBehaviour
 
 
     
- public void OnPressPlayBTN()
+ public void OnPressReadyBtn()
  {
-  GameManager.gm.LoadNextScene();
+  GameManager.gm.LoadSimScene();
  }
 
 

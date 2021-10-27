@@ -1254,7 +1254,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1964457848}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
-        m_MethodName: OnPressPlayBTN
+        m_MethodName: OnPressReadyBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

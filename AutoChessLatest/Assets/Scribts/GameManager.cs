@@ -135,9 +135,13 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1));
     }
-    public void LoadNextScene()
+    public void LoadSimScene()
     {
         StoreGMPlayerListInGamgeMangerObject();
+        //DeleteGamgeManagerObjectChildren();
+
+       
+        
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1));
     }
 
@@ -170,6 +174,13 @@ public class GameManager : MonoBehaviour
         foreach (GameObject child in playerTeam)
         {
             child.transform.SetParent(this.transform);
+        }
+    }  
+    public void DeleteGamgeManagerObjectChildren()
+    {
+        foreach (GameObject child in playerTeam)
+        {
+          Destroy(child);
         }
     }
 

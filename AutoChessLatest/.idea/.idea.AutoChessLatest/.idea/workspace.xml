@@ -21,7 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7b9e3630-41e5-4cdd-9e7d-21512b2d065b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Choose.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Choose.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scribts/UIHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/UIHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +38,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scribts/Element.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/FightHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scribts/UIHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" />
       </list>
     </option>
@@ -62,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635338256605</updated>
-      <workItem from="1635338289884" duration="1799000" />
+      <workItem from="1635338289884" duration="5827000" />
     </task>
     <servers />
   </component>

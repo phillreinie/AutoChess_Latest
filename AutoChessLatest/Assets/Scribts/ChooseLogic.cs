@@ -5,13 +5,23 @@ using UnityEngine.UI;
 
 public class ChooseLogic : MonoBehaviour
 {
+
+    public static ChooseLogic chooseLogic;
     
     public Transform layoutShop;
     public Transform layoutPlayerTeam;
 
     public List<GameObject> shopList;
-    
 
+
+
+    void Awake()
+    {
+        if (chooseLogic == null)
+        {
+            chooseLogic = this;
+        }
+    }
     
     void Start()
     {
@@ -85,6 +95,7 @@ public class ChooseLogic : MonoBehaviour
 
                 GameManager.gm.playerTeam.Add(child.gameObject);
                 child.gameObject.transform.SetParent(layoutPlayerTeam);
+                GameManager.gm.ResetTranformToPanel(child.gameObject,layoutPlayerTeam.gameObject);
                 Player.playerInstance.PayShop();
                 child.GetComponent<Element>().DeSelect();
             }
@@ -113,7 +124,7 @@ public class ChooseLogic : MonoBehaviour
             GameObject child =   selectedElements[0].gameObject;
                
             GameManager.gm.playerTeam.Remove(child.gameObject);
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
             Player.playerInstance.GetCoin();
             // muss player team aktualisieren
         }
@@ -208,6 +219,16 @@ public class ChooseLogic : MonoBehaviour
             }
             
         }  
+    }
+
+    public List<GameObject> GetPlayerTeamPanel()
+    {
+        return FindAllChildrenInGameObject(layoutPlayerTeam);
+    }
+
+    private void OnDisable()
+    {
+        
     }
     
     
