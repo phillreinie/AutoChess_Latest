@@ -24,11 +24,13 @@ public class ChooseLogic : MonoBehaviour
     }
     
     void Start()
-    {
-      Roll();
-      Player.playerInstance.GetMoney();
-      SpawnTeam(GameManager.gm.playerTeam,layoutPlayerTeam);
-      
+    { 
+        Roll();
+        Player.playerInstance.GetMoney();
+        List<GameObject> obj = GameManager.gm.FindAllChildrenInGameObject(GameManager.gm.transform);
+        GameManager.gm.StorePlayerTeam(obj);
+        SpawnTeam(GameManager.gm.updatedTeam,layoutPlayerTeam);
+        
     }
 
     void Update()
@@ -116,14 +118,10 @@ public class ChooseLogic : MonoBehaviour
     // hat auch probleme dynamisch zu löschen
     public void Sell()
     {
-        if (Player.playerInstance.playerStats_Money <= 0) 
-            return;
-
         List<GameObject> selectedElements = CheckIfSelected(layoutPlayerTeam);
         if (selectedElements.Count == 1)
         {
-            int childs = layoutShop.transform.childCount;
-       
+            selectedElements[0].gameObject.GetComponent<Element>().DeSelect();
             GameObject child =   selectedElements[0].gameObject;
                
             GameManager.gm.playerTeam.Remove(child.gameObject);
@@ -138,7 +136,7 @@ public class ChooseLogic : MonoBehaviour
     {
         List<GameObject> selectedElements = CheckIfSelected(layoutPlayerTeam);
         int selectedElementsCount = selectedElements.Count;
-        Debug.Log(selectedElements);
+        //Debug.Log(selectedElements);
         if (selectedElementsCount == 2)
         {
              Element element1 = selectedElements[0].GetComponent<Element>();
@@ -159,31 +157,21 @@ public class ChooseLogic : MonoBehaviour
                  element1.DeSelect();
                  element2.DeSelect();
              }
-           
-
-             /* alte version
-              for (int i = childs - 1; i >= 0; i--) 
-              {
-                  GameObject child =   layoutPlayerTeam.transform.GetChild(i).gameObject;
-                  bool flag =  child.GetComponent<Element>().selected;
-                  if (flag)
-                  {
-                      child.GetComponent<Element>().ManipulateStats(10);
-                  }
-                  child.GetComponent<Element>().DeSelect();
-              }*/
         }
     }
 
     public List<GameObject> CheckIfSelected(Transform parent)
     {
+        if (parent.transform.childCount == 0)
+            return new List<GameObject>();
+        
         List<GameObject> temp = new List<GameObject>();
         
-        int childs = parent.transform.childCount;
+        int children = parent.transform.childCount;
         
-        for (int i = childs - 1; i >= 0; i--) 
+        for (int i = children - 1; i >= 0; i--) 
         {
-            GameObject child =   parent.transform.GetChild(i).gameObject;
+            GameObject child = parent.transform.GetChild(i).gameObject;
             bool flag =  child.GetComponent<Element>().selected;
             if (flag)
             {
@@ -219,7 +207,7 @@ public class ChooseLogic : MonoBehaviour
             List<GameObject> gos = FindAllChildrenInGameObject(layoutPlayerTeam);
             for (int i = 0; i < gos.Count; i++)
             {
-                Debug.Log(gos[i].name);
+                //Debug.Log(gos[i].name);
             }
             
         }  
@@ -237,7 +225,7 @@ public class ChooseLogic : MonoBehaviour
 
     private void UpdateTeam()
     {
-        Debug.Log(GetPlayerTeamPanel().Count);
+        //Debug.Log(GetPlayerTeamPanel().Count);
 
     }
     

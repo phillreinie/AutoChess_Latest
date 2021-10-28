@@ -38,9 +38,9 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scribts/Element.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/UIHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/FightHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" />
       </list>
     </option>
   </component>
@@ -66,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1635338256605</updated>
       <workItem from="1635338289884" duration="6191000" />
-      <workItem from="1635405665504" duration="4005000" />
+      <workItem from="1635405665504" duration="5431000" />
     </task>
     <servers />
   </component>
@@ -87,5 +87,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs</url>
+          <line>157</line>
+          <properties documentPath="C:\Users\phili\Documents\GitHub\AutoChess_Latest\AutoChessLatest\Assets\Scribts\ChooseLogic.cs" initialLine="157">
+            <startOffsets>
+              <option value="4868" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4888" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

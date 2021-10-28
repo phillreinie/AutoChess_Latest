@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> playerTeam = new List<GameObject>();
     public List<GameObject> enemyTeam = new List<GameObject>();
     public List<GameObject> shopItems = new List<GameObject>();
+    public List<GameObject> updatedTeam = new List<GameObject>();
 
     public Player playerRef;
   
@@ -70,18 +71,20 @@ public class GameManager : MonoBehaviour
     // Player Funktions
     public void StorePlayerTeam(List<GameObject> _team)
     {
-        playerTeam = _team;
+        Debug.Log(_team);
+        updatedTeam = _team;
+        Debug.Log(updatedTeam);
     }
 
-    public List<GameObject> GetPlayerTeam()
-    {
-        return playerTeam;
-    }
-
-    public void GetPlayerTeamInfo()
-    {
-        Debug.Log("Player team: "+ playerTeam.Count + " Elements");
-    }
+    // public List<GameObject> GetPlayerTeam()
+    // {
+    //     return playerTeam;
+    // }
+    //
+    // public void GetPlayerTeamInfo()
+    // {
+    //     Debug.Log("Player team: "+ playerTeam.Count + " Elements");
+    // }
    
     
     
@@ -135,6 +138,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadSimScene()
     {
+        StorePlayerTeam(playerTeam);
         StoreGMPlayerListInGamgeMangerObject();
         //DeleteGamgeManagerObjectChildren();
        // UpdatePlayerTeam();
@@ -161,19 +165,19 @@ public class GameManager : MonoBehaviour
         }
         return temp;
     } 
-    public List<GameObject> FindAllChildrenInGameObjectUI(RectTransform parent)
-    {
-        List<GameObject> temp = new List<GameObject>();
-        
-        int childs = parent.transform.childCount;
-        
-        for (int i = childs - 1; i >= 0; i--) 
-        {
-            GameObject child = parent.transform.GetChild(i).gameObject; 
-            temp.Add(child);
-        }
-        return temp;
-    }
+    // public List<GameObject> FindAllChildrenInGameObjectUI(RectTransform parent)
+    // {
+    //     List<GameObject> temp = new List<GameObject>();
+    //     
+    //     int childs = parent.transform.childCount;
+    //     
+    //     for (int i = childs - 1; i >= 0; i--) 
+    //     {
+    //         GameObject child = parent.transform.GetChild(i).gameObject; 
+    //         temp.Add(child);
+    //     }
+    //     return temp;
+    // }
     public void ResetTranformToPanel(GameObject start, GameObject target)
     {
         start.transform.SetParent(target.transform);
@@ -187,18 +191,18 @@ public class GameManager : MonoBehaviour
             child.transform.SetParent(this.transform);
         }
     }  
-    public void DeleteGamgeManagerObjectChildren()
-    {
-        foreach (GameObject child in playerTeam)
-        {
-          Destroy(child);
-        }
-    }
+    // public void DeleteGamgeManagerObjectChildren()
+    // {
+    //     foreach (GameObject child in playerTeam)
+    //     {
+    //       Destroy(child);
+    //     }
+    // }
 
-    private void UpdatePlayerTeam()
-    {
-       StoreGMPlayerListInGamgeMangerObject();
-    }
+    // private void UpdatePlayerTeam()
+    // {
+    //    StoreGMPlayerListInGamgeMangerObject();
+    // }
 
 
 }

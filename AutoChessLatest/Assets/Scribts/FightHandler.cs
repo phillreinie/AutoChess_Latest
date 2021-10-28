@@ -63,7 +63,7 @@ public class FightHandler : MonoBehaviour
 
     private void SpawnSetUp()
     {
-        playerTeamRef = GameManager.gm.playerTeam;
+        playerTeamRef = GameManager.gm.updatedTeam;
         enemyTeamRef = GameManager.gm.enemyTeam;
     } 
     
