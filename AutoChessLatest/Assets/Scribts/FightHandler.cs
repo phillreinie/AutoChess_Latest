@@ -48,7 +48,7 @@ public class FightHandler : MonoBehaviour
         
     }
 
-    private void SpawnTeam(List<GameObject> gos, Transform targetLayoutGroup,List<GameObject> targetList)
+    private void SpawnTeam(List<GameObject> gos, Transform targetLayoutGroup,List<GameObject> _newPlayerTeamRef)
     {
         foreach (GameObject element in gos)
         {
@@ -56,8 +56,7 @@ public class FightHandler : MonoBehaviour
          
           GameManager.gm.ResetTranformToPanel(tmpElement,targetLayoutGroup.gameObject);
 
-          
-          targetList.Add(tmpElement);
+          _newPlayerTeamRef.Add(tmpElement);
             
         }
     }

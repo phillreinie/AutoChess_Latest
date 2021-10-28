@@ -34,6 +34,9 @@ public class ChooseLogic : MonoBehaviour
     void Update()
     {
         Test();
+        
+        
+        UpdateTeam();
     }
     
     private void SpawnTeam(List<GameObject> gos, Transform targetLayoutGroup)
@@ -144,7 +147,8 @@ public class ChooseLogic : MonoBehaviour
              int id2 = element2.iD;
              if (id1 == id2)
              {
-                 GameManager.gm.playerTeam.Remove(selectedElements[1].gameObject); // muss erst finden um zu wissen welcher indeyx
+                 GameManager.gm.playerTeam.RemoveAt(GameManager.gm.playerTeam.Count -1); // muss erst finden um zu wissen welcher indeyx
+                // GameManager.gm.playerTeam.Remove(selectedElements[1].gameObject); // muss erst finden um zu wissen welcher indeyx
                  Destroy(selectedElements[1].gameObject);
                  Element element= selectedElements[0].GetComponent<Element>();
              
@@ -229,6 +233,12 @@ public class ChooseLogic : MonoBehaviour
     private void OnDisable()
     {
         
+    }
+
+    private void UpdateTeam()
+    {
+        Debug.Log(GetPlayerTeamPanel().Count);
+
     }
     
     

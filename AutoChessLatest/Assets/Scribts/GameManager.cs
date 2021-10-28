@@ -41,10 +41,8 @@ public class GameManager : MonoBehaviour
         {
             AddToPlayerTeam();
         } 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-           
-        }
+    
+      
  
     }
     
@@ -139,7 +137,7 @@ public class GameManager : MonoBehaviour
     {
         StoreGMPlayerListInGamgeMangerObject();
         //DeleteGamgeManagerObjectChildren();
-
+       // UpdatePlayerTeam();
        
         
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1));
@@ -151,6 +149,19 @@ public class GameManager : MonoBehaviour
     }    
     
     public List<GameObject> FindAllChildrenInGameObject(Transform parent)
+    {
+        List<GameObject> temp = new List<GameObject>();
+        
+        int childs = parent.transform.childCount;
+        
+        for (int i = childs - 1; i >= 0; i--) 
+        {
+            GameObject child = parent.transform.GetChild(i).gameObject; 
+            temp.Add(child);
+        }
+        return temp;
+    } 
+    public List<GameObject> FindAllChildrenInGameObjectUI(RectTransform parent)
     {
         List<GameObject> temp = new List<GameObject>();
         
@@ -182,6 +193,11 @@ public class GameManager : MonoBehaviour
         {
           Destroy(child);
         }
+    }
+
+    private void UpdatePlayerTeam()
+    {
+       StoreGMPlayerListInGamgeMangerObject();
     }
 
 
