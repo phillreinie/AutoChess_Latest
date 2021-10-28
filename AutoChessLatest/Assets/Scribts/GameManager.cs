@@ -13,12 +13,14 @@ public class GameManager : MonoBehaviour
     public List<GameObject> elementsList;
 
 
-    public List<GameObject> playerTeam = new List<GameObject>();
+    public List<GameObject> playerTeamListGM = new List<GameObject>();
     public List<GameObject> enemyTeam = new List<GameObject>();
     public List<GameObject> shopItems = new List<GameObject>();
     public List<GameObject> updatedTeam = new List<GameObject>();
 
     public Player playerRef;
+    
+    public int turnCounter =0;
   
     
 
@@ -51,7 +53,7 @@ public class GameManager : MonoBehaviour
 // Set Teams
     public void AddToPlayerTeam()
     {
-        playerTeam = GetRandomItemsFromList<GameObject> (elementsList, 5);
+        playerTeamListGM = GetRandomItemsFromList<GameObject> (elementsList, 5);
         
     } 
     public void AddToEnemyTeam()
@@ -71,9 +73,11 @@ public class GameManager : MonoBehaviour
     // Player Funktions
     public void StorePlayerTeam(List<GameObject> _team)
     {
-        Debug.Log(_team);
-        updatedTeam = _team;
-        Debug.Log(updatedTeam);
+        playerTeamListGM.Clear();
+        for (int i = 0; i < playerRef.playerTeam.Count; i++)
+        {
+            playerTeamListGM.Add(_team[i]);
+        }
     }
 
     // public List<GameObject> GetPlayerTeam()
@@ -138,8 +142,12 @@ public class GameManager : MonoBehaviour
     }
     public void LoadSimScene()
     {
-        StorePlayerTeam(playerTeam);
-        StoreGMPlayerListInGamgeMangerObject();
+      //  StorePlayerTeam(playerTeam);
+
+       turnCounter++;
+        playerRef.StoreTeamList(playerTeamListGM);
+        ChooseLogic.chooseLogic.SetPanelOfPlayerTeamToPlayerTeam();
+       // StoreGMPlayerListInGamgeMangerObject();
         //DeleteGamgeManagerObjectChildren();
        // UpdatePlayerTeam();
        
@@ -186,7 +194,7 @@ public class GameManager : MonoBehaviour
 
     public void StoreGMPlayerListInGamgeMangerObject()
     {
-        foreach (GameObject child in playerTeam)
+        foreach (GameObject child in playerTeamListGM)
         {
             child.transform.SetParent(this.transform);
         }
@@ -203,6 +211,15 @@ public class GameManager : MonoBehaviour
     // {
     //    StoreGMPlayerListInGamgeMangerObject();
     // }
+
+    public void ClearPlayerGameObject()
+    {
+        foreach (GameObject children in playerRef.gameObject.transform)
+        {
+            if (!playerTeamListGM.Contains(children))
+                 Destroy(children);
+        }
+    }
 
 
 }

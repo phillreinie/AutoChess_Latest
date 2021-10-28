@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     
 
     public List<GameObject> playerTeam;
+    public List<Element> playerTeamElements;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
         {
             playerInstance = this;
         }
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Update()
@@ -68,9 +70,17 @@ public class Player : MonoBehaviour
         this.player_Turn++;
     }
 
-    private void UpdateMoney()
+    // Speichert das Player Team am Ende der Choose Runde die Liste im GM( die verändert wurde)
+    public void StoreTeamList(List<GameObject> gos)
     {
+        playerTeam.Clear();
+        playerTeamElements.Clear();
+        foreach (GameObject children in gos)
+        {
+                playerTeam.Add(children);
+                playerTeamElements.Add(children.GetComponent<Element>());
         
+        }
     }
 }
 

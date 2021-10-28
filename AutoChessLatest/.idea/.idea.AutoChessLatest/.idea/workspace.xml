@@ -20,10 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b9e3630-41e5-4cdd-9e7d-21512b2d065b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/PlayerPanel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PlayerPanel.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AutoChessLatest/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Choose.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Choose.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scribts/Element.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/Element.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scribts/FightHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/FightHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scribts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scribts/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,21 +43,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scribts/Element.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/UIHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/FightHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scribts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scribts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayerPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scribts/Element.cs" />
         <option value="$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="205d9j1DSMZAiyVsrYJas99czCm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -66,7 +78,8 @@
       <option name="presentableId" value="Default" />
       <updated>1635338256605</updated>
       <workItem from="1635338289884" duration="6191000" />
-      <workItem from="1635405665504" duration="5431000" />
+      <workItem from="1635405665504" duration="6028000" />
+      <workItem from="1635420123066" duration="14533000" />
     </task>
     <servers />
   </component>
@@ -86,6 +99,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -93,13 +107,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scribts/ChooseLogic.cs</url>
-          <line>157</line>
+          <line>202</line>
           <properties documentPath="C:\Users\phili\Documents\GitHub\AutoChess_Latest\AutoChessLatest\Assets\Scribts\ChooseLogic.cs" initialLine="157">
             <startOffsets>
-              <option value="4868" />
+              <option value="6470" />
             </startOffsets>
             <endOffsets>
-              <option value="4888" />
+              <option value="6490" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

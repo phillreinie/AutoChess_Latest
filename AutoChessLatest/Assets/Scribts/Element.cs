@@ -19,10 +19,14 @@ public class Element : MonoBehaviour
     public bool hasEffect;
     public bool selected;
 
+    public bool sold;
+
 
     private Button btn;
 
     public int iD;
+
+    public int positionInGMList;
 
     private void Start()
     {
@@ -96,6 +100,20 @@ public class Element : MonoBehaviour
     public void UpdateLevel()
     {
         this.level++;
+    }
+
+    public void SetInxInGM(int n)
+    {
+        this.positionInGMList = n;
+    }
+    public void DecreaseINxInGM()
+    {
+        this.positionInGMList --;
+    }
+
+    public int GetInxInGMList()
+    {
+        return positionInGMList;
     }
     
 }
