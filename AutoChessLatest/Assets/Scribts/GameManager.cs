@@ -143,6 +143,16 @@ public class GameManager : MonoBehaviour
     public void LoadSimScene()
     {
       //  StorePlayerTeam(playerTeam);
+      
+      for (int i = Player.playerInstance.gameObject.transform.childCount - 1; i >= 0; i--) 
+      {
+          GameObject child =  Player.playerInstance.gameObject.transform.GetChild(i).gameObject;
+          bool flag =  child.GetComponent<Element>().sold;
+          if (flag)
+          {
+              Destroy(child);
+          }
+      }
 
        turnCounter++;
         playerRef.StoreTeamList(playerTeamListGM);
@@ -157,6 +167,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadChooseScene()
     {
+        turnCounter++;
         SceneManager.LoadScene(1);
     }    
     

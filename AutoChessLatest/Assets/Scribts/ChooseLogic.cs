@@ -36,15 +36,7 @@ public class ChooseLogic : MonoBehaviour
         
         SpawnTeam(Player.playerInstance.playerTeam,layoutPlayerTeam);
         
-        for (int i = Player.playerInstance.gameObject.transform.childCount - 1; i >= 0; i--) 
-        {
-            GameObject child =  Player.playerInstance.gameObject.transform.GetChild(i).gameObject;
-            bool flag =  child.GetComponent<Element>().sold;
-            if (flag)
-            {
-               Destroy(child);
-            }
-        }
+   
         
     }
 
@@ -153,8 +145,9 @@ public class ChooseLogic : MonoBehaviour
                     GameManager.gm.playerTeamListGM.Remove(GameManager.gm.playerTeamListGM[i]);
                     foreach (GameObject go in GameManager.gm.playerTeamListGM)
                     {
-                        if (!go.GetComponent<Element>().sold)
+                        if (!GameManager.gm.playerTeamListGM.Contains(go))
                         {
+                            
                             go.GetComponent<Element>().DecreaseINxInGM();
                         }
                       
