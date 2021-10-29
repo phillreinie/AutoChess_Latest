@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public int player_Wins;
     
 
-    public List<GameObject> playerTeam;
+    public List<GameObject> playerTeamList;
     public List<Element> playerTeamElements;
 
     private void Awake()
@@ -73,11 +73,11 @@ public class Player : MonoBehaviour
     // Speichert das Player Team am Ende der Choose Runde die Liste im GM( die verändert wurde)
     public void StoreTeamList(List<GameObject> gos)
     {
-        playerTeam.Clear();
+        playerTeamList.Clear();
         playerTeamElements.Clear();
         foreach (GameObject children in gos)
         {
-                playerTeam.Add(children);
+                playerTeamList.Add(children);
                 playerTeamElements.Add(children.GetComponent<Element>());
         
         }

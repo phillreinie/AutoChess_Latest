@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 public class FightHandler : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class FightHandler : MonoBehaviour
 
     public bool over;
 
+    public Animator anim;
+
 
 
    private void Awake()
@@ -40,13 +43,8 @@ public class FightHandler : MonoBehaviour
        
         SpawnTeam(enemyTeamRef,layouEnemy,newEnemyTeamRef);
         
-        
     }
 
-    void Update()
-    {
-        
-    }
 
     private void SpawnTeam(List<GameObject> gos, Transform targetLayoutGroup,List<GameObject> _newPlayerTeamRef)
     {
@@ -63,7 +61,7 @@ public class FightHandler : MonoBehaviour
 
     private void SpawnSetUp()
     {
-        playerTeamRef = Player.playerInstance.playerTeam;
+        playerTeamRef = Player.playerInstance.playerTeamList;
         enemyTeamRef = GameManager.gm.enemyTeam;
     } 
     
@@ -101,7 +99,8 @@ public class FightHandler : MonoBehaviour
 
         frontEnemy.onDamage(frontPlayer.damage);
         frontPlayer.onDamage(frontEnemy.damage);
-        
+
+        hitSFX.pitch +=  UnityEngine.Random.Range(-1, 1);
         hitSFX.Play();
 
         if (frontPlayer.health <= 0)

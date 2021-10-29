@@ -13,6 +13,13 @@ public class ChooseLogic : MonoBehaviour
     public Transform layoutPlayerTeam;
 
     public List<GameObject> shopList;
+    
+    
+    private GameManager gameMangerRef;
+    private List<GameObject> gameMangerList;
+     
+    private Player playerRef;
+    private List<GameObject> playerTeamList;
 
 
 
@@ -22,19 +29,33 @@ public class ChooseLogic : MonoBehaviour
         {
             chooseLogic = this;
         }
+        
+        gameMangerRef = GameManager.gm;
+        playerRef = Player.playerInstance;
+
+        gameMangerList = gameMangerRef.playerTeamListGM;
+        playerTeamList = playerRef.playerTeamList;
+        
+
+
+
     }
     
     void Start()
     { 
+        
+        
+        
+        
         Roll();
-        Player.playerInstance.GetMoney();
+        playerRef.GetMoney();
         
         // Läd das in der am Ende der letzten Runde gespeicherte Team
-        List<GameObject> obj = Player.playerInstance.playerTeam;
-        GameManager.gm.StorePlayerTeam(obj);
+       
+        GameManager.gm.StorePlayerTeam(playerTeamList);
         
         
-        SpawnTeam(Player.playerInstance.playerTeam,layoutPlayerTeam);
+        SpawnTeam(playerTeamList,layoutPlayerTeam);
         
    
         
@@ -67,7 +88,7 @@ public class ChooseLogic : MonoBehaviour
 
     public void Roll()
     {
-        Player playerRef = Player.playerInstance;
+        
         int money = playerRef.playerStats_Money;
         
         if (money <= 0)
@@ -96,21 +117,26 @@ public class ChooseLogic : MonoBehaviour
     {
         List<GameObject> selectedElements = CheckIfSelected(layoutShop);
 
-        if (Player.playerInstance.playerStats_Money >= 3)
+        if (playerRef.playerStats_Money >= 3)
         {
             if (selectedElements.Count == 1)
             {
                 int childs = layoutShop.transform.childCount;
 
                 GameObject child = selectedElements[0].gameObject;
+                Element childElement = child.GetComponent<Element>();
 
-                GameManager.gm.playerTeamListGM.Add(child.gameObject);
+                gameMangerList.Add(child.gameObject);
                 
-                child.GetComponent<Element>().SetInxInGM(GameManager.gm.playerTeamListGM.Count-1);
+                // Set its self id to the id in the team List ( so know witch pos in team) -> elegantere Lösung
+                childElement.SetInxInGM(gameMangerList.Count-1);
+                 
+                // Set Parent to Layoutgroup
                 child.gameObject.transform.SetParent(layoutPlayerTeam);
-                GameManager.gm.ResetTranformToPanel(child.gameObject,layoutPlayerTeam.gameObject);
-                Player.playerInstance.PayShop();
-                child.GetComponent<Element>().DeSelect();
+                gameMangerRef.ResetTranformToPanel(child.gameObject,layoutPlayerTeam.gameObject);
+                
+                playerRef.PayShop();
+                childElement.DeSelect();
             }
         }
         else
@@ -131,23 +157,30 @@ public class ChooseLogic : MonoBehaviour
         {
             GameObject child =   selectedElements[0].gameObject;
 
-            // if (GameManager.gm.playerTeam.Contains(child))
-            // {
-            //     GameManager.gm.playerTeam.Remove(child);
-            // } 
-            for (int i = 0; i < GameManager.gm.playerTeamListGM.Count; i++)
+          
+            for (int i = 0; i < gameMangerList.Count; i++)
             {
 
-                if (GameManager.gm.playerTeamListGM[i].GetComponent<Element>().GetInxInGMList() == child.GetComponent<Element>().GetInxInGMList())
+                if (gameMangerList[i].GetComponent<Element>().GetInxInGMList() == child.GetComponent<Element>().GetInxInGMList())
                 {
                     Debug.Log("Copy Found");
-                    GameManager.gm.playerTeamListGM[i].GetComponent<Element>().sold = true;
-                    GameManager.gm.playerTeamListGM.Remove(GameManager.gm.playerTeamListGM[i]);
-                    foreach (GameObject go in GameManager.gm.playerTeamListGM)
+                    gameMangerList[i].GetComponent<Element>().sold = true;
+                    gameMangerList.Remove(gameMangerList[i]);
+                    // loop threw gameMangerList and see if any of it is already in player list if not than deacrease
+                    foreach (GameObject go in gameMangerList)
                     {
-                        if (!GameManager.gm.playerTeamListGM.Contains(go))
+                        if (!playerTeamList.Contains(go))
                         {
-                            
+                            go.GetComponent<Element>().DecreaseINxInGM();
+                        }
+                      
+                    } 
+                    
+                    //
+                    foreach (GameObject go in playerTeamList)
+                    {
+                        if (gameMangerList.Contains(go))
+                        {
                             go.GetComponent<Element>().DecreaseINxInGM();
                         }
                       
@@ -155,19 +188,15 @@ public class ChooseLogic : MonoBehaviour
                     Destroy(child);
                     break;
 
-                }
+                } // if
        
-            }
-      
-
-           
-             // findet bestehende elemente nicht (deswegen ab 2 Runde fehlerhaft)
-        }
+            } // for
+        }// if
         else
-        {
-            selectedElements[0].gameObject.GetComponent<Element>().DeSelect(); // loop for deselect
-        }
-    }
+            {
+                selectedElements[0].gameObject.GetComponent<Element>().DeSelect(); // loop for deselect
+            }
+    } // still buggy but ok for now
     
     // zeigt probleme mit Laden neu laden in Scene - Team muss besser gespeichert werden 
     public void Combine()
@@ -183,12 +212,17 @@ public class ChooseLogic : MonoBehaviour
              int id2 = element2.iD;
              if (id1 == id2)
              {
-                 GameManager.gm.playerTeamListGM.RemoveAt(GameManager.gm.playerTeamListGM.Count -1); // muss erst finden um zu wissen welcher indeyx
-                // GameManager.gm.playerTeam.Remove(selectedElements[1].gameObject); // muss erst finden um zu wissen welcher indeyx
-                 Destroy(selectedElements[1].gameObject);
-                 Element element= selectedElements[0].GetComponent<Element>();
+                 for (int i = 0; i < selectedElements.Count; i++)
+                 {
+                     if (gameMangerList.Contains(selectedElements[i]))
+                     {
+                         Debug.Log("Copy Found");
+                         gameMangerList.RemoveAt(i);
+                     }
+                 }
+                 gameMangerList.Add(selectedElements[0]);
              
-                 element.ManipulateStats(2);
+                
              }
              else
              {
@@ -256,16 +290,7 @@ public class ChooseLogic : MonoBehaviour
         return FindAllChildrenInGameObject(layoutPlayerTeam);
     }
 
-    private void OnDisable()
-    {
-        
-    }
-
-    private void UpdateTeam()
-    {
-        //Debug.Log(GetPlayerTeamPanel().Count);
-
-    }
+ 
 
     public void SetPanelOfPlayerTeamToPlayerTeam()
     {

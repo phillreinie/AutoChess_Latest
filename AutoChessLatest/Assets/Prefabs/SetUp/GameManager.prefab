@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &778670402
+--- !u!1 &7094094593383946005
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,53 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 778670403}
-  - component: {fileID: 778670404}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &778670403
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778670402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7717800415453362160}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &778670404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778670402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7409f6d829dd484e8977a24daaf1d16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerStats_Money: 10
-  PlayerStats_Lifes: 3
---- !u!1 &7717800415453362162
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7717800415453362160}
-  - component: {fileID: 7717800415453362161}
+  - component: {fileID: 7094094593383946007}
+  - component: {fileID: 7094094593383946006}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -62,28 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7717800415453362160
+--- !u!4 &7094094593383946007
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7717800415453362162}
+  m_GameObject: {fileID: 7094094593383946005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 778670403}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7717800415453362161
+--- !u!114 &7094094593383946006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7717800415453362162}
+  m_GameObject: {fileID: 7094094593383946005}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b96beac3ba875bc40a8db07a5f18050f, type: 3}
@@ -94,7 +48,20 @@ MonoBehaviour:
   - {fileID: 715802492908199380, guid: 0c96b59a20df4094ca6a8496d0210fa5, type: 3}
   - {fileID: 6278376188721798604, guid: b135163e16a865b40ac15ef62e8e67a1, type: 3}
   - {fileID: 3369132061860013305, guid: b4717341cc4176846b05d0cf32d0135a, type: 3}
-  playerTeam: []
+  - {fileID: 3369132061860013305, guid: c40df7d69313d6e40b0b67866a3d9fc1, type: 3}
+  - {fileID: 3369132061860013305, guid: c40df7d69313d6e40b0b67866a3d9fc1, type: 3}
+  - {fileID: 3369132061860013305, guid: c40df7d69313d6e40b0b67866a3d9fc1, type: 3}
+  - {fileID: 3369132061860013305, guid: ba2c21311e0c3d946b815712e5181fd7, type: 3}
+  - {fileID: 3369132061860013305, guid: ba2c21311e0c3d946b815712e5181fd7, type: 3}
+  - {fileID: 3369132061860013305, guid: ba2c21311e0c3d946b815712e5181fd7, type: 3}
+  - {fileID: 3369132061860013305, guid: 965d12a99d87e3e4198c6a08571dcb2e, type: 3}
+  - {fileID: 3369132061860013305, guid: 965d12a99d87e3e4198c6a08571dcb2e, type: 3}
+  - {fileID: 715802492908199380, guid: 0c96b59a20df4094ca6a8496d0210fa5, type: 3}
+  - {fileID: 8383540237724107510, guid: 9966eaba713865e4084f9083073275c6, type: 3}
+  - {fileID: 3369132061860013305, guid: b4717341cc4176846b05d0cf32d0135a, type: 3}
+  playerTeamListGM: []
   enemyTeam: []
   shopItems: []
-  playerRef: {fileID: 778670404}
+  updatedTeam: []
+  playerRef: {fileID: 0}
+  turnCounter: 0

@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     public void StorePlayerTeam(List<GameObject> _team)
     {
         playerTeamListGM.Clear();
-        for (int i = 0; i < playerRef.playerTeam.Count; i++)
+        for (int i = 0; i < playerRef.playerTeamList.Count; i++)
         {
             playerTeamListGM.Add(_team[i]);
         }
@@ -142,8 +142,8 @@ public class GameManager : MonoBehaviour
     }
     public void LoadSimScene()
     {
-      //  StorePlayerTeam(playerTeam);
-      
+     
+      // loop threw player GameObject and destroys all sold objects
       for (int i = Player.playerInstance.gameObject.transform.childCount - 1; i >= 0; i--) 
       {
           GameObject child =  Player.playerInstance.gameObject.transform.GetChild(i).gameObject;
@@ -153,13 +153,12 @@ public class GameManager : MonoBehaviour
               Destroy(child);
           }
       }
-
-       turnCounter++;
+        // stores GameManager Team at the end of every Round into player
+        turnCounter++;
         playerRef.StoreTeamList(playerTeamListGM);
+        // transfers the player panel into the player GameObject( so no GameObject goes missing)
         ChooseLogic.chooseLogic.SetPanelOfPlayerTeamToPlayerTeam();
-       // StoreGMPlayerListInGamgeMangerObject();
-        //DeleteGamgeManagerObjectChildren();
-       // UpdatePlayerTeam();
+ 
        
         
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1));
@@ -184,32 +183,22 @@ public class GameManager : MonoBehaviour
         }
         return temp;
     } 
-    // public List<GameObject> FindAllChildrenInGameObjectUI(RectTransform parent)
-    // {
-    //     List<GameObject> temp = new List<GameObject>();
-    //     
-    //     int childs = parent.transform.childCount;
-    //     
-    //     for (int i = childs - 1; i >= 0; i--) 
-    //     {
-    //         GameObject child = parent.transform.GetChild(i).gameObject; 
-    //         temp.Add(child);
-    //     }
-    //     return temp;
-    // }
+
     public void ResetTranformToPanel(GameObject start, GameObject target)
     {
         start.transform.SetParent(target.transform);
         start.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
     }
 
-    public void StoreGMPlayerListInGamgeMangerObject()
-    {
-        foreach (GameObject child in playerTeamListGM)
-        {
-            child.transform.SetParent(this.transform);
-        }
-    }  
+    // public void StoreGMPlayerListInGamgeMangerObject()
+    // {
+    //     foreach (GameObject child in playerTeamListGM)
+    //     {
+    //         child.transform.SetParent(this.transform);
+    //     }
+    // }  
+    
+    
     // public void DeleteGamgeManagerObjectChildren()
     // {
     //     foreach (GameObject child in playerTeam)
@@ -223,14 +212,28 @@ public class GameManager : MonoBehaviour
     //    StoreGMPlayerListInGamgeMangerObject();
     // }
 
-    public void ClearPlayerGameObject()
-    {
-        foreach (GameObject children in playerRef.gameObject.transform)
-        {
-            if (!playerTeamListGM.Contains(children))
-                 Destroy(children);
-        }
-    }
+    // public void ClearPlayerGameObject()
+    // {
+    //     foreach (GameObject children in playerRef.gameObject.transform)
+    //     {
+    //         if (!playerTeamListGM.Contains(children))
+    //              Destroy(children);
+    //     }
+    // }
+    
+    // public List<GameObject> FindAllChildrenInGameObjectUI(RectTransform parent)
+    // {
+    //     List<GameObject> temp = new List<GameObject>();
+    //     
+    //     int childs = parent.transform.childCount;
+    //     
+    //     for (int i = childs - 1; i >= 0; i--) 
+    //     {
+    //         GameObject child = parent.transform.GetChild(i).gameObject; 
+    //         temp.Add(child);
+    //     }
+    //     return temp;
+    // }
 
 
 }

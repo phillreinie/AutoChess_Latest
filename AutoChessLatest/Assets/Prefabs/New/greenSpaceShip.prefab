@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 7880086228848139484}
   - component: {fileID: 1249357799516457333}
   - component: {fileID: -5799961707822339647}
+  - component: {fileID: 3299691974918204985}
   m_Layer: 5
   m_Name: greenSpaceShip
   m_TagString: Untagged
@@ -235,7 +236,9 @@ MonoBehaviour:
   levelTxt: {fileID: 5279544121110989201}
   hasEffect: 0
   selected: 0
+  sold: 0
   iD: 7
+  positionInGMList: 0
 --- !u!114 &-5799961707822339647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +282,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &3299691974918204985
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369132061860013305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65635ba886eeb0548b7e3326eb0e0652, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6710106189397833837
 GameObject:
   m_ObjectHideFlags: 0
